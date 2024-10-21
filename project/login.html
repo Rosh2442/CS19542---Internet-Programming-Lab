@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Airline Reservation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 400px;
+        }
+        .btn-primary {
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Login</h2>
+        <form id="loginForm" action="login.php" method="post">
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" class="form-control" id="email" name= "email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a href="create_account.html">Create Account</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.toLowerCase(); // Convert email to lowercase for case-insensitive comparison
+            const password = document.getElementById('password').value;
+
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!user) {
+                alert('No account found. Please create an account first.');
+                return;
+            }
+
+            if (user.email === email && user.password === password) {
+                alert('Login successful!');
+                window.location.href = 'dashboard.php'; // Redirect to dashboard page
+            } else {
+                alert('Invalid login credentials. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+</html>
