@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Register Form</title>
+    </head>
+    <body>
+        <script>
+            function validateForm(){
+                var firstName = document.myforms.userName.value;
+                var lastName = document.myforms.lastName.value;
+                var rollno = document.myforms.rollno.value;
+                var email_id = document.myforms.emailID.value;
+                var gender_ = document.myforms.gender.value;
+                var phone_number = document.myforms.phoneNumber.value;
+                var address_ = document.myforms.address.value;
+                var pincode_ = document.myforms.pincode.value;
+                var department = document.myforms.department.value;
+                var section = document.myforms.section.value;
+                var year = document.myforms.year.value;
+                if(user_name=="" || user_name==null){
+                    alert("User Name required");
+                    return false;
+                }
+                if(email_id=="" || email_id==null){
+                    alert("Email ID is required");
+                    return false;
+                }
+                if(gender_=="" || gender_==null){
+                    alert("Gender is required");
+                    return false;
+                }
+                if(phone_number=="" || phone_number==null || phone_number.length!=10){
+                    alert("Enter correct phone number");
+                    return false;
+                }
+                if(address_=="" || address_==null){
+                    alert("Address required");
+                    return false;
+                }
+                if(pincode_=="" || pincode_==null || pincode_.length!=6){
+                    alert("Enter correct pincode");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+    <body>
+        <h2 style="color: rgb(6, 129, 223);"><center>Registeration Form</center></h2><br>
+        <form name="myforms" onsubmit="return validateForm()" method="post">
+        <b>First Name: </b><input type="text" name="firstName" required><br><br>
+        <b>Last Name: </b><input type="text" name="lastName" required><br><br>
+        <b>Roll Number: </b><input type="text" name="rollno" required><br><br>
+        
+
+        <b>Gender: </b>
+        <select name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+        <b>Year: </b><input type="number" name="year"required><br><br>
+        <b>Deparment: </b><input type="text" name="department"required><br><br>
+        <b>Section: </b><input type="text" name="section"required><br><br>
+        <b>Phone Number: </b><input type="number" name="phoneNumber"required><br><br>
+        <b>Email ID: </b><input type="email" name="emailID"required><br><br>
+        <b> Address: </b><textarea name="address"></textarea><br><br>
+        
+        <b>Pincode: </b><input type="number" name="pincode"required><br><br>
+        <input type="submit" value="submit">
+        <input type="reset" value = "reset">
+    </form>
+    </body>
+</html>
